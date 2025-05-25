@@ -13,6 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.helloWorld {
+  align-items: center;
+  display: flex;
+  font-size: 4em;
+  font-weight: 700;
+  flex-direction: column;
+  width: 100vw;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
