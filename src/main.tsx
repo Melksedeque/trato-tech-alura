@@ -4,8 +4,9 @@ import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <div>
-      Hello World!
+    <div className='helloWorld'>
+      Hello World! 🖖
+      <small><em>Live long and prosper</em></small>
     </div>
   </StrictMode>,
 )
