@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# AlFood
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Tela Principal](./screenshots/tela-principal.png)
 
-Currently, two official plugins are available:
+## Menu
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Descrição](#descrição)
+  - [Principais recursos incluem](#principais-recursos-incluem)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+  - [Arquivos Principais](#arquivos-principais)
+- [Como Instalar e Rodar o Projeto](#como-instalar-e-rodar-o-projeto)
+  - [Configuração](#configuração)
+  - [Casos de Uso Comuns](#casos-de-uso-comuns)
+  - [Solução de Problemas](#solução-de-problemas)
+- [Projeto ao Vivo](#projeto-ao-vivo)
+- [Fluxo de Dados](#fluxo-de-dados)
+- [Licença](#licença)
+- [Autor](#autor)
 
-## Expanding the ESLint configuration
+## Descrição
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Principais recursos incluem
+
+
+## Tecnologias Utilizadas
+
+### Frontend
+
+
+### Backend
+
+
+## Estrutura de Pastas
+
+
+### Arquivos Principais
+
+
+## Como Instalar e Rodar o Projeto
+
+### Pré-requisitos
+
+
+### Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/Melksedeque/trato-tech-alura.git
+cd trato-tech-alura
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Configuração
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+#### Variáveis de Ambiente
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+#### Backend
+
+
+### Casos de Uso Comuns
+
+
+### Solução de Problemas
+
+
+## Projeto ao Vivo
+
+Para acessar uma versão de demonstração do projeto, visite: [Trato Tech](#)
+
+## Fluxo de Dados
+
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [MIT License](https://https://github.com/Melksedeque/trato-tech-alura?tab=MIT-1-ov-file) para mais detalhes.
+
+## Autor
+
+- GitHub - [Melksedeque](https://github.com/Melksedeque/)
+- FrontEndMentor - [Melksedeque](https://www.frontendmentor.io/profile/Melksedeque)
+- Twitter / X - [SouzaMelk](https://x.com/SouzaMelk)
+- LinkedIn - [Melksedeque Silva](https://www.linkedin.com/in/melksedeque-silva/)
