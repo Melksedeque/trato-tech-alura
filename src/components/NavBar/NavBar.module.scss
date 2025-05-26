@@ -18,7 +18,7 @@
     height: 200px;
     justify-items: center;
   }
-  @media(max-width: $mobile-sm) {
+  @media(max-width: $mobile) {
     padding: 0 50px;
   }
 }
