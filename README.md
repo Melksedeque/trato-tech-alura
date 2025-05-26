@@ -5,6 +5,7 @@
 ## Menu
 
 - [Descrição](#descrição)
+  - [Layout do Projeto](#layout)
   - [Principais recursos incluem](#principais-recursos-incluem)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Estrutura de Pastas](#estrutura-de-pastas)
@@ -20,6 +21,10 @@
 
 ## Descrição
 
+
+### Layout
+
+O layout do projeto é responsivo e foi desenvolvido no [Figma](https://www.figma.com/design/XuqzfXGFTPQYR5O1SS60NI/React--gerenciamento-de-estados-globais-com-Redux-%7C-TratoTech--Community-?node-id=50-4&p=f&t=KSRbNzHDojI3PBXO-0).
 
 ### Principais recursos incluem
 
