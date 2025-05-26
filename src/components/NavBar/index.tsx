@@ -1,7 +1,9 @@
+import styles from './NavBar.module.css'
+
 export default function NavBar() {
     return (
-        <div>
+        <nav className={styles.nav}>
             <h1>NavBar</h1>
-        </div>
+        </nav>
     )
 }
