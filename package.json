@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "sass": "^1.89.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
