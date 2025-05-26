@@ -1,5 +1,5 @@
 import Logo from 'components/Logo'
-import styles from './NavBar.module.css'
+import styles from './NavBar.module.scss'
 
 export default function NavBar() {
     return (
