@@ -1,5 +1,3 @@
-@import 'styles/breakpoints';
-
 .nav {
   align-items: center;
   display: grid;
@@ -23,11 +21,6 @@
   @media(max-width: $mobile-sm) {
     padding: 0 50px;
   }
-}
-
-.logo {
-  cursor: pointer;
-  grid-area: logo;
 }
 
 .links {
