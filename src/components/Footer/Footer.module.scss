@@ -1,6 +1,23 @@
 .footer {
-    background-color: #0C90F0;
+    align-items: center;
+    background-image: url('assets/images/footer.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
+    display: flex;
+    height: 10rem;
+    justify-content: space-between;
+    padding: 0 6rem;
+    width: 100%;
+    .socialIcons {
+        display: flex;
+        gap: 6rem;
+    }
+    .copyright {
+        p {
+            font-size: .7rem;
+            margin: .25rem 0;
+        }
+    }
 }
