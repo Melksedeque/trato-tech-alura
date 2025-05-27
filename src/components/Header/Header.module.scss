@@ -24,7 +24,7 @@ header {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    &-texto {
+    .texto {
         color: white;
         grid-area: texto;
         h1 {
@@ -34,13 +34,13 @@ header {
             font-size: 25px;
         }
     }
-    &-button {
+    .button {
         display: flex;
         @media(max-width: $tablet) {
             justify-content: center;    
         }
     }
-    &-imagem {
+    .imagem {
         align-self: center;
         grid-area: imagem;
         justify-self: center;
