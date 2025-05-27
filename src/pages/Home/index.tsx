@@ -1,10 +1,16 @@
+import Header from 'components/Header'
 import styles from './Home.module.scss'
+import imgInicial from 'assets/images/inicial.png'
 
 export default function Home() {
     return (
-        <div className={styles.home}>
-            <h1>Home Page do Projeto</h1>
-            <h2>Hello World!</h2>
+        <div>
+            <Header
+                titulo="Classificados Tech"
+                descricao="Compre diversos tipos de produtos no melhor site do Brasil!"
+                imagem={imgInicial}
+                className={styles.header}
+            />
         </div>
     )
 }
