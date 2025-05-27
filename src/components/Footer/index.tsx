@@ -9,12 +9,12 @@ const iconeProps = {
 export default function Footer() {
     return (
         <footer className={styles.footer}>
-            <div>
+            <div className={styles.socialIcons}>
                 <FaFacebook { ...iconeProps } />
                 <FaTwitter { ...iconeProps } />
                 <FaInstagram { ...iconeProps } />
             </div>
-            <div>
+            <div className={styles.copyright}>
                 <p>Desenhado por <a href="http://www.alura.com.br/" target="_blank" rel="noopener noreferrer">Alura</a></p>
                 <p>Desenvolvido por <a href="http://github.com/Melksedeque" target="_blank" rel="noopener noreferrer">Melksedeque</a></p>
             </div>
