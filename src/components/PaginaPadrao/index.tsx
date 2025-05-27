@@ -1,12 +1,12 @@
 import Footer from 'components/Footer'
-import NavBar from 'components/NavBar'
 import styles from './PaginaPadrao.module.scss'
 import { Outlet } from 'react-router-dom'
+import Header from 'components/Header'
 
 export default function PaginaPadrao() {
     return (
         <div className={styles.container}>
-            <NavBar />
+            <Header />
             <div className={styles['container-outlet']}>
                 <Outlet />
             </div>
