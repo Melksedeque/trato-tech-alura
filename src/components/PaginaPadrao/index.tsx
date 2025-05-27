@@ -1,6 +1,6 @@
 import Footer from 'components/Footer'
 import NavBar from 'components/NavBar'
-import styles from 'PaginaPadrao.module.scss'
+import styles from './PaginaPadrao.module.scss'
 import { Outlet } from 'react-router-dom'
 
 export default function PaginaPadrao() {
