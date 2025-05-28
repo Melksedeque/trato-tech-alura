@@ -19,7 +19,7 @@ export default function Home() {
             />
             <div className={styles.categorias}>
                 <div className={styles.title}>
-                    <h1>Categorias</h1>
+                    <h2>Categorias</h2>
                 </div>
                 <div className={styles.container}>
                     {categorias.map((categoria, index) => (
