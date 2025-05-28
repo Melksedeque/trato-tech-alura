@@ -11,6 +11,19 @@ export default function Home() {
                 imagem={imgInicial}
                 className={styles.header}
             />
+            <div className={styles.categorias}>
+                <div className={styles.title}>
+                    <h1>Categorias</h1>
+                </div>
+                <div className={styles.container}>
+                    {categorias.map((categoria, index) => {
+                        <div key={index} onClick={}>
+                            <img src={categoria.image} alt={categoria.nome} />
+                            <h3>{categoria.nome}</h3>
+                        </div>
+                    })}
+                </div>
+            </div>
         </div>
     )
 }
