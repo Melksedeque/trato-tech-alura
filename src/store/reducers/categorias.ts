@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import automotivoThumb from 'assets/categorias/thumbnail/automotivo.png';
-import eletronicosThumb from 'assets/categorias/thumbnail/eletronicos.png';
-import escritorioThumb from 'assets/categorias/thumbnail/escritorio.png';
-import jogosThumb from 'assets/categorias/thumbnail/jogos.png';
-import somThumb from 'assets/categorias/thumbnail/som.png';
-import automotivoHeader from 'assets/categorias/header/automotivo.png';
-import eletronicosHeader from 'assets/categorias/header/eletronicos.png';
-import escritorioHeader from 'assets/categorias/header/escritorio.png';
-import jogosHeader from 'assets/categorias/header/jogos.png';
-import somHeader from 'assets/categorias/header/som.png';
+import automotivoThumb from 'assets/images/categorias/thumbnails/automotivo.png';
+import eletronicosThumb from 'assets/images/categorias/thumbnails/eletronicos.png';
+import escritorioThumb from 'assets/images/categorias/thumbnails/escritorio.png';
+import jogosThumb from 'assets/images/categorias/thumbnails/jogos.png';
+import somThumb from 'assets/images/categorias/thumbnails/som.png';
+import automotivoHeader from 'assets/images/categorias/header/automotivo.png';
+import eletronicosHeader from 'assets/images/categorias/header/eletronicos.png';
+import escritorioHeader from 'assets/images/categorias/header/escritorio.png';
+import jogosHeader from 'assets/images/categorias/header/jogos.png';
+import somHeader from 'assets/images/categorias/header/som.png';
 
 const initialState = [{
   nome: 'Eletrônicos',
@@ -43,8 +43,9 @@ const initialState = [{
 }];
 
 const categoriasSlice = createSlice({
-  name: 'categorias',
-  initialState,
+    name: 'categorias',
+    initialState,
+    reducers: {},
 });
 
 export default categoriasSlice.reducer;
