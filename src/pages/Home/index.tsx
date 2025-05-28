@@ -1,8 +1,11 @@
 import Header from 'components/Header'
 import styles from './Home.module.scss'
 import imgInicial from 'assets/images/inicial.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
+    const navigate = useNavigate();
+
     return (
         <div>
             <Header
@@ -17,7 +20,7 @@ export default function Home() {
                 </div>
                 <div className={styles.container}>
                     {categorias.map((categoria, index) => {
-                        <div key={index} onClick={}>
+                        <div key={index} onClick={navigate(`/categoria/${categoria.id}`)}>
                             <img src={categoria.image} alt={categoria.nome} />
                             <h3>{categoria.nome}</h3>
                         </div>
