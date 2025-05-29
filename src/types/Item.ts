@@ -1,10 +1,11 @@
 export interface Item {
-    nome: string;
+    titulo: string;
     preco: number;
     descricao: string;
-    thumbnail: string;
+    imagem: string;
     categoria: string;
     id: string;
+    favorito: boolean;
 }
 
 export interface ItemState {
