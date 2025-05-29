@@ -12,7 +12,6 @@ const iconeProps = {
 
 export default function Item(props: Item) {
     const { titulo, descricao, preco, foto, favorito, id } = props
-    console.log(foto)
     const precoFormatado = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
