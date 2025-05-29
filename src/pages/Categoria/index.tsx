@@ -1,4 +1,3 @@
-import styles from './Categoria.module.scss'
 import { RootState } from 'store/index';
 import Header from "components/Header";
 import { useSelector } from "react-redux";
@@ -13,7 +12,6 @@ export default function Categoria() {
                 titulo={categoria?.nome || ''}
                 descricao={categoria?.descricao || ''}
                 imagem={categoria?.header || ''}
-                className={styles.categorias}
             />
         </div>
     )
