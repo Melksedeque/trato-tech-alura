@@ -1,11 +1,16 @@
+import styles from './Categoria.module.scss';
 import { RootState } from 'store/index';
 import Header from "components/Header";
 import { useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
+import Item from 'components/Item';
 
 export default function Categoria() {
     const { nomeCategoria } = useParams();
-    const categoria = useSelector((state: RootState) => state.categorias.find(categoria => categoria.id === nomeCategoria));
+    const { categoria, itens } = useSelector((state: RootState) => ({
+        categoria: state.categorias.find(categoria => categoria.id === nomeCategoria),
+        itens: state.itens.filter(item => item.categoria === nomeCategoria)
+    }));
     return (
         <div>
             <Header
@@ -13,6 +18,11 @@ export default function Categoria() {
                 descricao={categoria?.descricao || ''}
                 imagem={categoria?.header || ''}
             />
+            <div className={styles.itens}>
+                {itens?.map(item => (
+                    <Item key={item.id} {...item} />
+                ))}
+            </div>
         </div>
     )
 }
