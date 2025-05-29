@@ -1,6 +1,7 @@
 import type { Item } from 'types/Item'
 import styles from './Item.module.scss'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { FaCartPlus } from 'react-icons/fa'
 
 const iconeProps = {
     size: 24,
@@ -29,10 +30,11 @@ export default function Item(props: Item) {
                         <p>{precoFormatado}</p>
                     </div>
                     <div className={styles['item-acoes']}>
-                        <span>{favorito
+                        {favorito
                             ? <AiFillHeart {...iconeProps} color="#FF0000" className={styles['item-acao']} />
                             : <AiOutlineHeart {...iconeProps} className={styles['item-acao']} />
-                        }</span>
+                        }
+                        <FaCartPlus {...iconeProps} color={false ? '#1875E8' : iconeProps.color} className={styles['item-acao']} />
                     </div>
                 </div>
             </div>
