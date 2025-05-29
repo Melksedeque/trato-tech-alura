@@ -42,13 +42,13 @@ header {
     }
     .imagem {
         align-self: center;
+        border-radius: 150px;
         grid-area: imagem;
         justify-self: center;
         overflow: hidden;
         max-width: 700px;
         @media(max-width: $tablet) {
             img {
-                border-radius: 150px;
                 width: 100%;
             }
         }
