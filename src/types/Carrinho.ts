@@ -3,4 +3,4 @@ export interface CartItem {
     quantidade: number;
 }
 
-export interface CarrinhoState extends Array<CartItem> {}
+export type CarrinhoState = CartItem[];
