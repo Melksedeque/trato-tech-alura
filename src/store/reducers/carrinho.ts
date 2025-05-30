@@ -1,17 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { CarrinhoState } from "types/Carrinho";
 
-const initialState = [];
+const initialState: CarrinhoState = [];
 
 const carrinhoSlice = createSlice({
     name: 'carrinho',
     initialState,
     reducers: {
         mudarCarrinho: (state, {payload}) => {
-            const existeItem = state.some(item => item.id === payload.id);
+            const existeItem = state.some(item => item.id === payload);
 
-            if (!existeItem) {
-                
-            }
+            if (!existeItem) return[
+                ...state,
+                {
+                    id: payload,
+                    quantidade: 1,
+                }
+            ];
+            return state.filter(item => item.id !== payload);
         },
     },
 });
