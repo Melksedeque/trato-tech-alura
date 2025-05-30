@@ -4,5 +4,5 @@ export interface CartItem {
 }
 
 export interface CarrinhoState {
-    itensCarrinho: CartItem[];
+    carrinho: CartItem[];
 }
