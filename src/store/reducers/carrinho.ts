@@ -25,9 +25,10 @@ const carrinhoSlice = createSlice({
                 itemNoCarrinho.quantidade += payload.quantidade;
             }
         },
+        resetarCarrinho: () => initialState,
     },
 });
 
-export const { mudarCarrinho, mudarQuantidade } = carrinhoSlice.actions;
+export const { mudarCarrinho, mudarQuantidade, resetarCarrinho } = carrinhoSlice.actions;
 
 export default carrinhoSlice.reducer;
