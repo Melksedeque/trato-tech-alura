@@ -28,7 +28,7 @@ export default function Carrinho() {
                 imagem='carrinho.jpg'
             />
             <div className={styles.carrinho}>
-                {carrinho.map((item: ItemCarrinho) => <Item key={item.id} {...item} />)}
+                {carrinho.map((item: ItemCarrinho) => <Item key={item.id} {...item} carrinho />)}
                 <div className={styles.total}>
                     <strong>Resumo da compra</strong>
                     <span>Subtotal: <strong>R$ 0,00</strong></span>
