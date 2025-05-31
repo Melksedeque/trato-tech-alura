@@ -6,6 +6,7 @@ import { mudarFavorito } from 'store/reducers/itens'
 import { mudarCarrinho } from 'store/reducers/carrinho'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'store/index'
+import classNames from 'classnames'
 
 const iconeProps = {
     size: 24,
@@ -30,7 +31,9 @@ export default function Item(props: Item) {
     }
     
     return (
-        <div className={styles.item}>
+        <div className={classNames(styles.item, {
+            [styles.itemNoCarrinho]: existeNoCarrinho,
+        })}>
             <div className={styles['item-imagem']}>
                 <img src={foto} alt={titulo} />
             </div>
