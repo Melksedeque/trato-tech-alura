@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import categoriasSlice from './reducers/categorias'
 import itensSlice from './reducers/itens'
+import carrinhoSlice from './reducers/carrinho'
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; 
 
@@ -11,7 +12,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   categorias: categoriasSlice,
-  itens: itensSlice
+  itens: itensSlice,
+  carrinho: carrinhoSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
