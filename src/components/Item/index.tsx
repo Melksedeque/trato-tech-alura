@@ -14,7 +14,7 @@ const iconeProps = {
 }
 
 export default function Item(props: Item) {
-    const { titulo, descricao, preco, foto, favorito, id } = props
+    const { titulo, descricao, preco, foto, favorito, id, carrinho } = props
     const precoFormatado = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
@@ -32,7 +32,7 @@ export default function Item(props: Item) {
     
     return (
         <div className={classNames(styles.item, {
-            [styles.itemNoCarrinho]: existeNoCarrinho,
+            [styles.itemNoCarrinho]: carrinho && existeNoCarrinho,
         })}>
             <div className={styles['item-imagem']}>
                 <img src={foto} alt={titulo} />
