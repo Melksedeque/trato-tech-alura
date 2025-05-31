@@ -6,6 +6,7 @@ export interface Item {
     categoria: string;
     id: string;
     favorito: boolean;
+    carrinho: boolean;
 }
 
 export interface ItemCarrinho extends Item {
