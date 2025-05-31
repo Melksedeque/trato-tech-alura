@@ -25,7 +25,6 @@ export default function Carrinho() {
             <Header
                 titulo='Carrinho de compras'
                 descricao='Confira os produtos que você adicionou ao carrinho'
-                imagem='carrinho.jpg'
             />
             <div className={styles.carrinho}>
                 {carrinho.map((item: ItemCarrinho) => <Item key={item.id} {...item} carrinho />)}
