@@ -20,12 +20,10 @@ const carrinhoSlice = createSlice({
             return state.filter(item => item.id !== payload);
         },
         mudarQuantidade: (state: CarrinhoState, {payload}: {payload: {id: string, quantidade: number}}) => {
-            return state.map(itemNoCarrinho => {
-                if (itemNoCarrinho.id === payload.id) {
-                    itemNoCarrinho.quantidade += payload.quantidade;
-                }
-                return itemNoCarrinho;
-            });
+            const itemNoCarrinho = state.find(item => item.id === payload.id);
+            if (itemNoCarrinho) {
+                itemNoCarrinho.quantidade += payload.quantidade;
+            }
         },
     },
 });
