@@ -1,6 +1,6 @@
 export interface CartItem {
-    id: string;
-    quantidade: number;
+  id: string;
+  quantidade: number;
 }
 
 export type CarrinhoState = CartItem[];
