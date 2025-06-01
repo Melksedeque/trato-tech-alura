@@ -1,10 +1,10 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import categoriasSlice from './reducers/categorias'
-import itensSlice from './reducers/itens'
-import carrinhoSlice from './reducers/carrinho'
-import buscaSlice from './reducers/busca'
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import categoriasSlice from './reducers/categorias';
+import itensSlice from './reducers/itens';
+import carrinhoSlice from './reducers/carrinho';
+import buscaSlice from './reducers/busca';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; 
+import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
   key: 'root',
@@ -25,7 +25,11 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE', 'persist/REGISTER'],
+        ignoredActions: [
+          'persist/PERSIST',
+          'persist/REHYDRATE',
+          'persist/REGISTER',
+        ],
       },
     }),
 });
