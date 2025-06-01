@@ -3,6 +3,7 @@ import Categoria from "pages/Categoria";
 import Carrinho from "pages/Carrinho";
 import Home from "pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Anuncie from "pages/Anuncie";
 
 export default function Router() {
     return (
@@ -12,6 +13,7 @@ export default function Router() {
                     <Route index element={<Home />} />
                     <Route path="/categoria/:nomeCategoria" element={<Categoria />} />
                     <Route path="carrinho" element={<Carrinho />} />
+                    <Route path="anuncie" element={<Anuncie />} />
                 </Route>
             </Routes>
         </BrowserRouter>
