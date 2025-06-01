@@ -135,7 +135,7 @@ Todos esses estados são persistidos no localStorage do navegador usando Redux P
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [MIT License](https://https://github.com/Melksedeque/trato-tech-alura?tab=MIT-1-ov-file) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [MIT License](https://github.com/Melksedeque/trato-tech-alura?tab=MIT-1-ov-file) para mais detalhes.
 
 ## Autor
 
