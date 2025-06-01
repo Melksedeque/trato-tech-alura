@@ -16,8 +16,18 @@
     }
     .copyright {
         p {
-            font-size: .7rem;
+            font-size: .75rem;
             margin: .25rem 0;
+            a {
+                border-bottom: 1px solid #fff;
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+                transition: border-color .25s ease-in-out;
+                &:hover {
+                    border-color: transparent;
+                }
+            }
         }
     }
 }
