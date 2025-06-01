@@ -1,10 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Router from './routes'
-import store, { persistor } from './store/index'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import Router from './routes';
+import store, { persistor } from './store/index';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -13,5 +13,5 @@ createRoot(document.getElementById('root')!).render(
         <Router />
       </PersistGate>
     </Provider>
-  </StrictMode>,
-)
+  </StrictMode>
+);
