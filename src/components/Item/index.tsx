@@ -55,7 +55,7 @@ export default function Item(props: Item) {
                             ? <AiFillHeart {...iconeProps} color="#FF0000" className={styles['item-acao']} onClick={resolverFavorito} />
                             : <AiOutlineHeart {...iconeProps} className={styles['item-acao']} onClick={resolverFavorito} />
                         }
-                        {existeNoCarrinho
+                        {carrinho && existeNoCarrinho
                             ? (<div className={styles.quantidade}>
                                 Quantidade: 
                                 <AiFillMinusCircle
