@@ -9,7 +9,7 @@
   position: absolute;
   width: 100vw;
   z-index: 1;
-  @media(max-width: $tablet) {
+  @media (max-width: $tablet) {
     grid-template-areas:
       'logo logo'
       'links icones'
@@ -19,7 +19,7 @@
     height: 200px;
     justify-items: center;
   }
-  @media(max-width: $mobile) {
+  @media (max-width: $mobile) {
     padding: 0 50px;
   }
 }
@@ -29,7 +29,7 @@
   display: flex;
   justify-content: flex-start;
   gap: 20px;
-  @media(max-width: $tablet) {
+  @media (max-width: $tablet) {
     justify-self: start;
   }
 }

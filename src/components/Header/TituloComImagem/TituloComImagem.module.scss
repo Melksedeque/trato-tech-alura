@@ -3,7 +3,7 @@
   grid-template-areas: 'texto imagem';
   grid-template-columns: 1fr 2fr;
   justify-content: space-between;
-  @media(max-width: $tablet) {
+  @media (max-width: $tablet) {
     gap: 20px;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr;
@@ -22,7 +22,7 @@
   }
   .button {
     display: flex;
-    @media(max-width: $tablet) {
+    @media (max-width: $tablet) {
       justify-content: center;
     }
   }
