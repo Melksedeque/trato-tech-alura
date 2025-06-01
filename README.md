@@ -1,6 +1,6 @@
 # Trato Tech
 
-![Tela Principal](./src/assets/images/inicial.png)
+![Tela Principal](/screenshot/tela-principal.png)
 
 ## Menu
 
@@ -79,12 +79,14 @@ src/
 ### Instalação
 
 1. Clone o repositório:
+
 ```bash
 git clone https://github.com/Melksedeque/trato-tech-alura.git
 cd trato-tech-alura
 ```
 
 2. Instale as dependências:
+
 ```bash
 npm install
 # ou
@@ -92,6 +94,7 @@ yarn
 ```
 
 3. Inicie o servidor de desenvolvimento:
+
 ```bash
 npm run dev
 # ou
