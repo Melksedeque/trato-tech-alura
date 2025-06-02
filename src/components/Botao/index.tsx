@@ -1,5 +1,5 @@
-import { Botao as TypeBotao } from 'types/Botao';
 import styles from './Botao.module.scss';
+import { Botao as TypeBotao } from 'types/Botao';
 
 export default function Botao({ type, onClick, children }: TypeBotao) {
   return (
