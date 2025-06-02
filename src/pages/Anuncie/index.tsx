@@ -14,7 +14,7 @@ export default function Anuncie() {
         titulo="Anunice aqui!"
         descricao="Anuncie seus produtos conosco"
       />
-      <form action="">
+      <form action="" className={styles.formulario}>
         <input
           type="text"
           placeholder="Nome do produto"
