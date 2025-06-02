@@ -1,3 +1,4 @@
+import Botao from 'components/Botao';
 import styles from './Anuncie.module.scss';
 import Header from 'components/Header';
 import { useSelector } from 'react-redux';
@@ -45,7 +46,9 @@ export default function Anuncie() {
           placeholder="Preço do produto"
           alt="Preço do Produto"
         />
-        <button type="submit">Cadastrar produto</button>
+        <Botao type="submit" onClick={() => 0}>
+          Cadastrar produto
+        </Botao>
       </form>
     </div>
   );
