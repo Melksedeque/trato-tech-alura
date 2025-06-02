@@ -17,11 +17,12 @@
   select {
     border: none;
     border-radius: 5px;
+    font-size: 1.25rem;
     outline: #1a95f0;
     padding: 10px 20px;
     transition: all 0.25s ease-in-out;
     &:focus {
-        outline: 2px solid #1a95f0;
+      outline: 2px solid #1a95f0;
     }
   }
 }
