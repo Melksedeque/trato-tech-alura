@@ -6,6 +6,7 @@ import styles from './Carrinho.module.scss';
 import { RootState } from 'store/index';
 import { useSelector, useDispatch } from 'react-redux';
 import { resetarCarrinho } from 'store/reducers/carrinho';
+import Botao from 'components/Botao';
 
 export default function Carrinho() {
   const dispatch = useDispatch();
@@ -48,12 +49,9 @@ export default function Carrinho() {
             Subtotal: <strong>R$ {total.toFixed(2)}</strong>
           </span>
         </div>
-        <button
-          className={styles.finalizar}
-          onClick={() => dispatch(resetarCarrinho())}
-        >
+        <Botao type="button" onClick={() => dispatch(resetarCarrinho())}>
           Finalizar compra
-        </button>
+        </Botao>
       </div>
     </>
   );
