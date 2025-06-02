@@ -1,5 +1,5 @@
 export interface Botao {
-  type: string;
+  type: 'submit' | 'reset' | 'button' | undefined;
   onClick: () => void;
   children: string;
 }
