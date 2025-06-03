@@ -7,11 +7,12 @@
 
 .formulario {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   margin: 20px auto;
-  flex: 1;
+  padding: 50px;
   width: 70%;
   input,
   select {
