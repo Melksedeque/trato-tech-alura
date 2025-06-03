@@ -23,24 +23,24 @@ export default function Anuncie() {
       />
       <form action="" className={styles.formulario}>
         <input
-          {...register('nome')}
+          {...register('nome', { required: true })}
           type="text"
           placeholder="Nome do produto"
           alt="Nome do Produto"
         />
         <input
-          {...register('descricao')}
+          {...register('descricao', { required: true })}
           type="text"
           placeholder="Descrição do produto"
           alt="Descrição do Produto"
         />
         <input
-          {...register('imagem')}
+          {...register('imagem', { required: true })}
           type="url"
           placeholder="URL da imagem do produto"
           alt="URL da imagem do Produto"
         />
-        <select {...register('categoria')} name="" id="">
+        <select {...register('categoria', { required: true })} name="" id="">
           <option value="" disabled>
             -- Selecione a categoria --
           </option>
@@ -51,7 +51,7 @@ export default function Anuncie() {
           ))}
         </select>
         <input
-          {...register('preco')}
+          {...register('preco', { required: true })}
           type="number"
           placeholder="Preço do produto"
           alt="Preço do Produto"
