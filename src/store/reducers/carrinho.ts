@@ -27,6 +27,10 @@ const carrinhoSlice = createSlice({
       const itemNoCarrinho = state.find((item) => item.id === payload.id);
       if (itemNoCarrinho) {
         itemNoCarrinho.quantidade += payload.quantidade;
+
+        if (itemNoCarrinho.quantidade <= 0) {
+          return state.filter((item) => item.id !== payload.id);
+        }
       }
     },
     resetarCarrinho: () => initialState,
