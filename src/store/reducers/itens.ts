@@ -292,7 +292,7 @@ const itensSlice = createSlice({
       });
     },
     cadastrarItem: (state, { payload }) => {
-      state.push({payload}, uuid())
+      state.push({ ...payload, id: uuid() });
     },
   },
 });
