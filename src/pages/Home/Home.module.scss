@@ -10,7 +10,7 @@
   transform: translateY(-250px);
   h2 {
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 5rem auto 3rem;
   }
   .container {
@@ -25,12 +25,20 @@
       cursor: pointer;
       display: flex;
       flex-direction: column;
+      transition: all 0.25s ease-in-out;
       h3 {
         color: #041833;
         font-size: 25px;
+        transition: all 0.25s ease-in-out;
       }
       > img {
         border-radius: 150px;
+      }
+      &:hover {
+        transform: scale(1.1);
+        h3 {
+          color: #1a95f0;
+        }
       }
     }
   }
