@@ -9,7 +9,15 @@ export default function Anuncie() {
   const categorias = useSelector((state: RootState) =>
     state.categorias.map(({ nome, id }) => ({ nome, id }))
   );
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      nome: '',
+      descricao: '',
+      imagem: '',
+      categoria: '',
+      preco: '',
+    },
+  });
 
   function cadastrarProduto(param) {
     console.log(param);
@@ -40,7 +48,7 @@ export default function Anuncie() {
           placeholder="URL da imagem do produto"
           alt="URL da imagem do Produto"
         />
-        <select {...register('categoria', { required: true })} name="" id="">
+        <select {...register('categoria', { required: true })}>
           <option value="" disabled>
             -- Selecione a categoria --
           </option>
