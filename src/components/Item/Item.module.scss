@@ -66,6 +66,7 @@
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
+  position: relative;
   .quantidade {
     align-items: center;
     display: flex;
@@ -79,5 +80,19 @@
     gap: 50px;
     justify-content: flex-end;
     padding: 0 50px;
+  }
+
+  .botao-remover {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+
+  &:hover .botao-remover {
+    opacity: 1;
   }
 }
