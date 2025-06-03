@@ -5,6 +5,7 @@ import {
   AiFillHeart,
   AiFillMinusCircle,
   AiFillPlusCircle,
+  AiFillCloseCircle,
 } from 'react-icons/ai';
 import { FaCartPlus } from 'react-icons/fa';
 import { mudarFavorito } from 'store/reducers/itens';
@@ -42,12 +43,24 @@ export default function Item(props: Item) {
     dispatch(mudarCarrinho(id));
   }
 
+  function excluirDoCarrinho() {
+    dispatch(mudarCarrinho(id));
+  }
+
   return (
     <div
       className={classNames(styles.item, {
         [styles.itemNoCarrinho]: carrinho && existeNoCarrinho,
       })}
     >
+      {carrinho && existeNoCarrinho && (
+        <AiFillCloseCircle
+          {...iconeProps}
+          color="#FF0000"
+          className={styles['botao-remover']}
+          onClick={excluirDoCarrinho}
+        />
+      )}
       <div className={styles['item-imagem']}>
         <img src={foto} alt={titulo} />
       </div>
