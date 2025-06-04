@@ -18,7 +18,7 @@ export default function Home() {
         imagem={imgInicial}
         className={styles.header}
       >
-        <Botao type="button" onClick={() => 0}>
+        <Botao type="button" onClick={() => navigate('/anuncie')}>
           Quero anunciar!
         </Botao>
       </Header>
