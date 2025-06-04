@@ -6,12 +6,14 @@ export default function TituloComImagem({
   descricao,
   imagem,
   className,
+  children,
 }: HeaderProps) {
   return (
     <div className={`${className} ${styles.header}`}>
       <div className={styles.texto}>
         <h1>{titulo}</h1>
         <h2>{descricao}</h2>
+        {children}
       </div>
       <div className={styles.imagem}>
         <img src={imagem} alt={titulo} />
