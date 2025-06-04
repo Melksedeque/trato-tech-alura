@@ -13,9 +13,9 @@ export default function Anuncie() {
   );
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      nome: '',
+      titulo: '',
       descricao: '',
-      imagem: '',
+      foto: '',
       categoria: '',
       preco: '',
     },
@@ -33,7 +33,7 @@ export default function Anuncie() {
       />
       <form action="" className={styles.formulario}>
         <input
-          {...register('nome', { required: true })}
+          {...register('titulo', { required: true })}
           type="text"
           placeholder="Nome do produto"
           alt="Nome do Produto"
@@ -45,7 +45,7 @@ export default function Anuncie() {
           alt="Descrição do Produto"
         />
         <input
-          {...register('imagem', { required: true })}
+          {...register('foto', { required: true })}
           type="url"
           placeholder="URL da imagem do produto"
           alt="URL da imagem do Produto"
