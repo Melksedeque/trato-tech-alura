@@ -3,4 +3,5 @@ export default interface HeaderProps {
   descricao: string;
   imagem?: string;
   className?: string;
+  children?: React.ReactNode;
 }
