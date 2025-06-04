@@ -2,7 +2,7 @@ import styles from './Categoria.module.scss';
 import { RootState } from 'store/index';
 import Header from 'components/Header';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Item from 'components/Item';
 import Botao from 'components/Botao';
 
