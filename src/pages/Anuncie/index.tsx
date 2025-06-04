@@ -52,7 +52,10 @@ export default function Anuncie() {
           placeholder="URL da imagem do produto"
           alt="URL da imagem do Produto"
         />
-        <select {...register('categoria', { required: true })}>
+        <select
+          {...register('categoria', { required: true })}
+          disabled={!!nomeCategoria}
+        >
           <option value="" disabled>
             -- Selecione a categoria --
           </option>
