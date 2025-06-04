@@ -61,7 +61,7 @@ export default function Anuncie() {
           ))}
         </select>
         <input
-          {...register('preco', { required: true })}
+          {...register('preco', { required: true, valueAsNumber: true })}
           type="number"
           placeholder="Preço do produto"
           alt="Preço do Produto"
