@@ -8,11 +8,14 @@ export default function Header({
   descricao,
   imagem,
   className = '',
+  children,
 }: HeaderProps) {
   return (
     <header className={`${styles.header}`}>
       {titulo && !imagem && (
-        <TituloSemImagem titulo={titulo} descricao={descricao} />
+        <TituloSemImagem titulo={titulo} descricao={descricao}>
+          {children}
+        </TituloSemImagem>
       )}
       {titulo && imagem && (
         <TituloComImagem
@@ -20,7 +23,9 @@ export default function Header({
           descricao={descricao}
           imagem={imagem}
           className={className}
-        />
+        >
+          {children}
+        </TituloComImagem>
       )}
     </header>
   );
