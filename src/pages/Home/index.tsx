@@ -4,6 +4,7 @@ import imgInicial from 'assets/images/inicial.png';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
+import Botao from 'components/Botao';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -16,7 +17,11 @@ export default function Home() {
         descricao="Compre diversos tipos de produtos no melhor site do Brasil!"
         imagem={imgInicial}
         className={styles.header}
-      />
+      >
+        <Botao type="button" onClick={() => 0}>
+          Quero anunciar!
+        </Botao>
+      </Header>
       <div className={styles.categorias}>
         <div className={styles.title}>
           <h2>Categorias</h2>
