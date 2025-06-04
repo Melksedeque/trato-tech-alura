@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import { useForm } from 'react-hook-form';
 import { cadastrarItem } from 'store/reducers/itens';
+import { useParams } from 'react-router-dom';
 
 export default function Anuncie() {
   const dispatch = useDispatch();
+  const { nomeCategoria = '' } = useParams();
   const categorias = useSelector((state: RootState) =>
     state.categorias.map(({ nome, id }) => ({ nome, id }))
   );
@@ -16,7 +18,7 @@ export default function Anuncie() {
       titulo: '',
       descricao: '',
       foto: '',
-      categoria: '',
+      categoria: nomeCategoria,
       preco: '',
     },
   });
