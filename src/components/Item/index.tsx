@@ -10,7 +10,7 @@ import {
   AiFillEdit,
 } from 'react-icons/ai';
 import { FaCartPlus } from 'react-icons/fa';
-import { mudarFavorito } from 'store/reducers/itens';
+import { mudarFavorito, mudarItem } from 'store/reducers/itens';
 import { mudarCarrinho, mudarQuantidade } from 'store/reducers/carrinho';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/index';
@@ -59,7 +59,10 @@ export default function Item(props: Item) {
         <AiOutlineCheck
           {...iconeProps}
           className={styles['item-acao']}
-          onClick={() => setModoEdicao(false)}
+          onClick={() => {
+            setModoEdicao(false);
+            dispatch(mudarItem({ id, item: { titulo: novoTitulo } }));
+          }}
         />
       ) : (
         <AiFillEdit
