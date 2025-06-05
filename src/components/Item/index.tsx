@@ -34,6 +34,7 @@ export default function Item(props: Item) {
     currency: 'BRL',
   }).format(preco);
   const [modoEdicao, setModoEdicao] = useState();
+  const [novoTitulo, setNovoTitulo] = useState(titulo);
   const dispatch = useDispatch();
   const existeNoCarrinho = useSelector((state: RootState) =>
     state.carrinho.some((itemNoCarrinho) => itemNoCarrinho.id === id)
@@ -88,7 +89,15 @@ export default function Item(props: Item) {
       </div>
       <div className={styles['item-descricao']}>
         <div className={styles['item-titulo']}>
-          <h3>{titulo}</h3>
+          {modoEdicao ? (
+            <input
+              type="text"
+              value={novoTitulo}
+              onChange={(e) => setNovoTitulo(e.target.value)}
+            />
+          ) : (
+            <h3>{titulo}</h3>
+          )}
           <p>{descricao}</p>
         </div>
         <div className={styles['item-info']}>
