@@ -36,6 +36,7 @@ export default function Item(props: Item) {
   }).format(preco);
   const [modoEdicao, setModoEdicao] = useState();
   const [novoTitulo, setNovoTitulo] = useState(titulo);
+  const [novaDescricao, setNovaDescricao] = useState(descricao);
   const dispatch = useDispatch();
   const existeNoCarrinho = useSelector((state: RootState) =>
     state.carrinho.some((itemNoCarrinho) => itemNoCarrinho.id === id)
@@ -61,7 +62,12 @@ export default function Item(props: Item) {
           className={styles['item-acao']}
           onClick={() => {
             setModoEdicao(false);
-            dispatch(mudarItem({ id, item: { titulo: novoTitulo } }));
+            dispatch(
+              mudarItem({
+                id,
+                item: { titulo: novoTitulo, descricao: novaDescricao },
+              })
+            );
           }}
         />
       ) : (
@@ -94,16 +100,26 @@ export default function Item(props: Item) {
       <div className={styles['item-descricao']}>
         <div className={styles['item-titulo']}>
           {modoEdicao ? (
-            <Input
-              type="text"
-              value={novoTitulo}
-              onChange={(e) => setNovoTitulo(e.target.value)}
-              placeholder="Nome do produto"
-            />
+            <>
+              <Input
+                type="text"
+                value={novoTitulo}
+                onChange={(e) => setNovoTitulo(e.target.value)}
+                placeholder="Nome do produto"
+              />
+              <Input
+                type="text"
+                value={descricao}
+                onChange={(e) => setNovaDescricao(e.target.value)}
+                placeholder="Descrição do produto"
+              />
+            </>
           ) : (
-            <h3>{titulo}</h3>
+            <>
+              <h3>{titulo}</h3>
+              <p>{descricao}</p>
+            </>
           )}
-          <p>{descricao}</p>
         </div>
         <div className={styles['item-info']}>
           <div className={styles['item-preco']}>
