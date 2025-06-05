@@ -6,6 +6,8 @@ import {
   AiFillMinusCircle,
   AiFillPlusCircle,
   AiFillCloseCircle,
+  AiOutlineCheck,
+  AiFillEdit,
 } from 'react-icons/ai';
 import { FaCartPlus } from 'react-icons/fa';
 import { mudarFavorito } from 'store/reducers/itens';
@@ -13,6 +15,7 @@ import { mudarCarrinho, mudarQuantidade } from 'store/reducers/carrinho';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import classNames from 'classnames';
+import { useState } from 'react';
 
 const iconeProps = {
   size: 24,
@@ -30,6 +33,7 @@ export default function Item(props: Item) {
     style: 'currency',
     currency: 'BRL',
   }).format(preco);
+  const [modoEdicao, setModoEdicao] = useState();
   const dispatch = useDispatch();
   const existeNoCarrinho = useSelector((state: RootState) =>
     state.carrinho.some((itemNoCarrinho) => itemNoCarrinho.id === id)
@@ -110,12 +114,27 @@ export default function Item(props: Item) {
                 />
               </div>
             ) : (
-              <FaCartPlus
-                {...iconeProps}
-                color={existeNoCarrinho ? '#1875E8' : iconeProps.color}
-                className={styles['item-acao']}
-                onClick={resolverCarrinho}
-              />
+              <>
+                <FaCartPlus
+                  {...iconeProps}
+                  color={existeNoCarrinho ? '#1875E8' : iconeProps.color}
+                  className={styles['item-acao']}
+                  onClick={resolverCarrinho}
+                />
+                {modoEdicao ? (
+                  <AiOutlineCheck
+                    {...iconeProps}
+                    className={styles['item-acao']}
+                    onClick={() => setModoEdicao(false)}
+                  />
+                ) : (
+                  <AiFillEdit
+                    {...iconeProps}
+                    className={styles['item-acao']}
+                    onClick={() => setModoEdicao(true)}
+                  />
+                )}
+              </>
             )}
           </div>
         </div>
