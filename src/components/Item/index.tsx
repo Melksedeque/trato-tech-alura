@@ -51,6 +51,24 @@ export default function Item(props: Item) {
     dispatch(mudarCarrinho(id));
   }
 
+  const componenteEmEdicao = (
+    <>
+      {modoEdicao ? (
+        <AiOutlineCheck
+          {...iconeProps}
+          className={styles['item-acao']}
+          onClick={() => setModoEdicao(false)}
+        />
+      ) : (
+        <AiFillEdit
+          {...iconeProps}
+          className={styles['item-acao']}
+          onClick={() => setModoEdicao(true)}
+        />
+      )}
+    </>
+  );
+
   return (
     <div
       className={classNames(styles.item, {
@@ -121,19 +139,7 @@ export default function Item(props: Item) {
                   className={styles['item-acao']}
                   onClick={resolverCarrinho}
                 />
-                {modoEdicao ? (
-                  <AiOutlineCheck
-                    {...iconeProps}
-                    className={styles['item-acao']}
-                    onClick={() => setModoEdicao(false)}
-                  />
-                ) : (
-                  <AiFillEdit
-                    {...iconeProps}
-                    className={styles['item-acao']}
-                    onClick={() => setModoEdicao(true)}
-                  />
-                )}
+                {componenteEmEdicao}
               </>
             )}
           </div>
