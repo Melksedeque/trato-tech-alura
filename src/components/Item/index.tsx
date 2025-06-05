@@ -95,6 +95,7 @@ export default function Item(props: Item) {
               type="text"
               value={novoTitulo}
               onChange={(e) => setNovoTitulo(e.target.value)}
+              placeholder="Nome do produto"
             />
           ) : (
             <h3>{titulo}</h3>
