@@ -34,7 +34,7 @@ function Item(props: Item) {
     style: 'currency',
     currency: 'BRL',
   }).format(preco);
-  const [modoEdicao, setModoEdicao] = useState();
+  const [modoEdicao, setModoEdicao] = useState<boolean>(false);
   const [novoTitulo, setNovoTitulo] = useState(titulo);
   const [novaDescricao, setNovaDescricao] = useState(descricao);
   const dispatch = useDispatch();
