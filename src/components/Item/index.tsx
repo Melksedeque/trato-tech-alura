@@ -50,10 +50,6 @@ function Item(props: Item) {
     dispatch(mudarCarrinho(id));
   }
 
-  function excluirDoCarrinho() {
-    dispatch(mudarCarrinho(id));
-  }
-
   const componenteEmEdicao = (
     <>
       {modoEdicao ? (
@@ -90,7 +86,7 @@ function Item(props: Item) {
         {...iconeProps}
         color="#FF0000"
         className={styles['item-deletar']}
-        onClick={excluirDoCarrinho}
+        onClick={dispatch(deletarItem(id))}
       />
 
       <div className={styles['item-imagem']}>
