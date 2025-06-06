@@ -32,10 +32,11 @@ O layout do projeto é responsivo e foi desenvolvido no [Figma](https://www.figm
 - Navegação por categorias de produtos (Eletrônicos, Automotivo, Jogos, Escritório, Som)
 - Adição e remoção de produtos do carrinho
 - Gerenciamento de quantidade de itens no carrinho
+- Botão de exclusão que aparece ao passar o mouse sobre itens no carrinho
 - Sistema de favoritos
 - Busca de produtos nas categorias
 - Persistência de dados com Redux Persist
-- Criação de novos produtos
+- Criação e edição de produtos
 
 ## Tecnologias Utilizadas
 
@@ -48,6 +49,8 @@ O layout do projeto é responsivo e foi desenvolvido no [Figma](https://www.figm
 - React Router DOM para navegação
 - SASS/SCSS para estilização
 - Classnames para manipulação condicional de classes CSS
+- React Icons para ícones da interface
+- React Hook Form para formulários
 - Vite como bundler e ferramenta de desenvolvimento
 
 ## Estrutura de Pastas
@@ -113,12 +116,15 @@ O projeto utiliza Redux Persist para salvar o estado da aplicação no localStor
 3. **Favoritar Produtos**: Clique no ícone de coração para favoritar/desfavoritar um produto.
 4. **Buscar Produtos**: Use a barra de busca no topo para encontrar produtos específicos.
 5. **Gerenciar Carrinho**: Acesse a página de carrinho para ver os itens adicionados, alterar quantidades ou remover produtos.
-6. **Inserir novos produtos**: Criar anúncios de novos produtos em /anuncie
+6. **Excluir Produtos do Carrinho**: Passe o mouse sobre um item no carrinho para ver o botão de exclusão.
+7. **Inserir novos produtos**: Criar anúncios de novos produtos em /anuncie
+8. **Editar produtos**: Clique no ícone de edição para modificar o título e descrição de um produto.
 
 ### Solução de Problemas
 
 - **Carrinho não atualiza**: Verifique se o localStorage do navegador está habilitado.
 - **Imagens não carregam**: Certifique-se de que todas as dependências foram instaladas corretamente.
+- **Botão de exclusão não aparece**: Verifique se está passando o mouse corretamente sobre o item no carrinho.
 
 ## Projeto ao Vivo
 
@@ -129,8 +135,8 @@ Para acessar uma versão de demonstração do projeto, visite: [Trato Tech](#)
 O projeto utiliza Redux para gerenciar o estado global da aplicação:
 
 1. **Categorias**: Lista estática de categorias disponíveis.
-2. **Itens**: Produtos disponíveis para compra.
-3. **Carrinho**: Itens adicionados pelo usuário, com suas respectivas quantidades.
+2. **Itens**: Produtos disponíveis para compra, com opções de edição e exclusão.
+3. **Carrinho**: Itens adicionados pelo usuário, com suas respectivas quantidades e opção de remoção.
 4. **Busca**: Termo de busca atual para filtrar produtos.
 
 Todos esses estados são persistidos no localStorage do navegador usando Redux Persist.
