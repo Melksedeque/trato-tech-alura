@@ -10,7 +10,7 @@ import {
   AiFillEdit,
 } from 'react-icons/ai';
 import { FaCartPlus } from 'react-icons/fa';
-import { mudarFavorito, mudarItem } from 'store/reducers/itens';
+import { deletarItem, mudarFavorito, mudarItem } from 'store/reducers/itens';
 import { mudarCarrinho, mudarQuantidade } from 'store/reducers/carrinho';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/index';
@@ -90,7 +90,7 @@ export default function Item(props: Item) {
         {...iconeProps}
         color="#FF0000"
         className={`${styles['item-acao']} ${styles['item-deletar']}`}
-        onClick={excluirDoCarrinho}
+        onClick={() => dispatch(deletarItem(id))}
       />
       {carrinho && existeNoCarrinho && (
         <AiFillCloseCircle
