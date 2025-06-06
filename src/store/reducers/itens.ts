@@ -299,7 +299,8 @@ const itensSlice = createSlice({
       Object.assign(state[index], payload.item);
     },
     deletarItem: (state, { payload }) => {
-      return state.filter((item) => item.id !== payload);
+      const index = state.findIndex((item) => item.id === payload);
+      state.splice(index, 1);
     },
   },
 });
