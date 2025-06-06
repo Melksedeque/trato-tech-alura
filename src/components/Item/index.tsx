@@ -15,7 +15,7 @@ import { mudarCarrinho, mudarQuantidade } from 'store/reducers/carrinho';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import classNames from 'classnames';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import Input from 'components/Input';
 
 const iconeProps = {
@@ -27,7 +27,7 @@ const qntProps = {
   color: '#1875E8',
 };
 
-export default function Item(props: Item) {
+function Item(props: Item) {
   const { titulo, descricao, preco, foto, favorito, id, carrinho, quantidade } =
     props;
   const precoFormatado = new Intl.NumberFormat('pt-BR', {
@@ -89,17 +89,10 @@ export default function Item(props: Item) {
       <AiFillCloseCircle
         {...iconeProps}
         color="#FF0000"
-        className={`${styles['item-acao']} ${styles['item-deletar']}`}
-        onClick={() => dispatch(deletarItem(id))}
+        className={styles['item-deletar']}
+        onClick={excluirDoCarrinho}
       />
-      {carrinho && existeNoCarrinho && (
-        <AiFillCloseCircle
-          {...iconeProps}
-          color="#FF0000"
-          className={styles['botao-remover']}
-          onClick={excluirDoCarrinho}
-        />
-      )}
+
       <div className={styles['item-imagem']}>
         <img src={foto} alt={titulo} />
       </div>
@@ -184,3 +177,5 @@ export default function Item(props: Item) {
     </div>
   );
 }
+
+export default memo(Item);
