@@ -6,7 +6,7 @@ const buscaSlice = createSlice({
   name: 'busca',
   initialState,
   reducers: {
-    mudarBusca: (state, { payload }) => payload,
+    mudarBusca: (_state, { payload }) => payload,
     resetarBusca: () => initialState,
   },
 });
