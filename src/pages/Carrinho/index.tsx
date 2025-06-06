@@ -16,7 +16,7 @@ export default function Carrinho() {
     const carrinhoReduce = state.carrinho.reduce(
       (itens: ItemCarrinho[], itemNoCarrinho: CartItem) => {
         const item = state.itens.find((item) => item.id === itemNoCarrinho.id);
-        total += item.preco * itemNoCarrinho.quantidade;
+        total += (item?.preco || 0) * itemNoCarrinho.quantidade;
         if (item?.titulo.match(regexp)) {
           itens.push({
             ...item,
