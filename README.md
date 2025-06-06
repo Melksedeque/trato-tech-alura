@@ -25,7 +25,7 @@ Trato Tech é um e-commerce de produtos tecnológicos desenvolvido com React e R
 
 ### Layout
 
-O layout do projeto é responsivo e foi desenvolvido no [Figma](https://www.figma.com/design/XuqzfXGFTPQYR5O1SS60NI/React--gerenciamento-de-estados-globais-com-Redux-%7C-TratoTech--Community-?node-id=50-4&p=f&t=KSRbNzHDojI3PBXO-0).
+O layout do projeto é responsivo e foi desenvolvido no [Figma](https://www.figma.com/design/XuqzfXGFTPQYR5O1SS60NI/React--gerenciamento-de-estados-globais-com-Redux-%7C-TratoTech--Community-?node-id=50-4&p=f&t=KSRbNzHDojI3PBXO-0) pela equipe da Alura.
 
 ### Principais recursos incluem
 
@@ -33,8 +33,9 @@ O layout do projeto é responsivo e foi desenvolvido no [Figma](https://www.figm
 - Adição e remoção de produtos do carrinho
 - Gerenciamento de quantidade de itens no carrinho
 - Sistema de favoritos
-- Busca de produtos
+- Busca de produtos nas categorias
 - Persistência de dados com Redux Persist
+- Criação de novos produtos
 
 ## Tecnologias Utilizadas
 
@@ -112,6 +113,7 @@ O projeto utiliza Redux Persist para salvar o estado da aplicação no localStor
 3. **Favoritar Produtos**: Clique no ícone de coração para favoritar/desfavoritar um produto.
 4. **Buscar Produtos**: Use a barra de busca no topo para encontrar produtos específicos.
 5. **Gerenciar Carrinho**: Acesse a página de carrinho para ver os itens adicionados, alterar quantidades ou remover produtos.
+6. **Inserir novos produtos**: Criar anúncios de novos produtos em /anuncie
 
 ### Solução de Problemas
 
