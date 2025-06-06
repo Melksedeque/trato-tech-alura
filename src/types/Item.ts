@@ -5,7 +5,7 @@ export interface Item {
   foto: string;
   categoria: string;
   id: string;
-  favorito: boolean;
+  favorito?: boolean;
   carrinho?: boolean;
   quantidade?: number;
 }
