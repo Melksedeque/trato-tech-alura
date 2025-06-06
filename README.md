@@ -33,7 +33,7 @@ O layout do projeto é responsivo e foi desenvolvido no [Figma](https://www.figm
 - Adição e remoção de produtos do carrinho
 - Gerenciamento de quantidade de itens no carrinho
 - Sistema de favoritos
-- Busca de produtos
+- Busca de produtos nas categorias
 - Persistência de dados com Redux Persist
 
 ## Tecnologias Utilizadas
