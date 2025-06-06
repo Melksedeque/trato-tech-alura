@@ -16,6 +16,7 @@
   - [Solução de Problemas](#solução-de-problemas)
 - [Projeto ao Vivo](#projeto-ao-vivo)
 - [Fluxo de Dados](#fluxo-de-dados)
+- [Próximos Passos de Desenvolvimento](#próximos-passos-de-desenvolvimento)
 - [Licença](#licença)
 - [Autor](#autor)
 
@@ -140,6 +141,28 @@ O projeto utiliza Redux para gerenciar o estado global da aplicação:
 4. **Busca**: Termo de busca atual para filtrar produtos.
 
 Todos esses estados são persistidos no localStorage do navegador usando Redux Persist.
+
+## Próximos Passos de Desenvolvimento
+
+O projeto Trato Tech está em constante evolução. Abaixo estão os próximos recursos e melhorias planejados:
+
+### Recursos Prioritários
+
+1. **Página de Favoritos**: Implementar uma página dedicada para visualizar e gerenciar todos os produtos favoritados pelo usuário.
+
+2. **Correção na Exclusão de Produtos do Carrinho**: Resolver o bug atual onde a exclusão de um produto do carrinho também o remove da categoria de produtos.
+
+3. **Mensagem de Compra Finalizada**: Adicionar um fluxo de checkout com confirmação e mensagem de sucesso após a finalização da compra.
+
+### Melhorias Adicionais
+
+1. **Otimização de Performance**: Implementar lazy loading para imagens e componentes para melhorar o tempo de carregamento.
+
+2. **Testes Automatizados**: Adicionar testes unitários e de integração para garantir a qualidade do código.
+
+3. **Internacionalização**: Preparar a aplicação para suportar múltiplos idiomas.
+
+Se você deseja contribuir com alguma dessas melhorias, sinta-se à vontade para abrir um Pull Request!
 
 ## Licença
 
