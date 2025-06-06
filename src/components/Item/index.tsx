@@ -86,7 +86,7 @@ function Item(props: Item) {
         {...iconeProps}
         color="#FF0000"
         className={styles['item-deletar']}
-        onClick={dispatch(deletarItem(id))}
+        onClick={() => dispatch(deletarItem(id))}
       />
 
       <div className={styles['item-imagem']}>
