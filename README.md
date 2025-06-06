@@ -35,6 +35,7 @@ O layout do projeto é responsivo e foi desenvolvido no [Figma](https://www.figm
 - Sistema de favoritos
 - Busca de produtos nas categorias
 - Persistência de dados com Redux Persist
+- Criação de novos produtos
 
 ## Tecnologias Utilizadas
 
