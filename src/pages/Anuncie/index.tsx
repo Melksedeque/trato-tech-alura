@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { cadastrarItem } from 'store/reducers/itens';
 import { useParams } from 'react-router-dom';
 import Input from 'components/Input';
+import { Item } from 'types/Item';
 
 export default function Anuncie() {
   const dispatch = useDispatch();
@@ -14,7 +15,13 @@ export default function Anuncie() {
   const categorias = useSelector((state: RootState) =>
     state.categorias.map(({ nome, id }) => ({ nome, id }))
   );
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<{
+    titulo: string;
+    descricao: string;
+    foto: string;
+    categoria: string;
+    preco: string;
+  }>({
     defaultValues: {
       titulo: '',
       descricao: '',
@@ -24,8 +31,18 @@ export default function Anuncie() {
     },
   });
 
-  function cadastrarProduto(data) {
-    dispatch(cadastrarItem(data));
+  function cadastrarProduto(data: {
+    titulo: string;
+    descricao: string;
+    foto: string;
+    categoria: string;
+    preco: string;
+  }) {
+    const itemData: Omit<Item, 'id'> = {
+      ...data,
+      preco: Number(data.preco),
+    };
+    dispatch(cadastrarItem(itemData));
   }
 
   return (
