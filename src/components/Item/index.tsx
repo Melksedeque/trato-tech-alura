@@ -86,6 +86,12 @@ export default function Item(props: Item) {
         [styles.itemNoCarrinho]: carrinho && existeNoCarrinho,
       })}
     >
+      <AiFillCloseCircle
+        {...iconeProps}
+        color="#FF0000"
+        className={`${styles['item-acao']} ${styles['item-deletar']}`}
+        onClick={excluirDoCarrinho}
+      />
       {carrinho && existeNoCarrinho && (
         <AiFillCloseCircle
           {...iconeProps}
