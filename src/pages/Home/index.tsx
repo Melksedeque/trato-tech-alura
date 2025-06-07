@@ -2,26 +2,26 @@ import Header from 'components/Header';
 import styles from './Home.module.scss';
 import imgInicial from 'assets/images/inicial.png';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import Botao from 'components/Botao';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
+import instance from 'config/api';
+import { adicionarCategorias } from 'store/reducers/categorias';
 
 export default function Home() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const categorias = useSelector((state: RootState) => state.categorias);
 
-  function buscarCategorias() {
-    fetch('http://localhost:3333/categorias')
-      .then(response => response.json())
-      .then(json => {
-        
-      })
-  }
+  const buscarCategorias = useCallback(async () => {
+    const resposta = await instance.get('categorias');
+    dispatch(adicionarCategorias(resposta.data));
+  }, [dispatch]);
 
   useEffect(() => {
-    buscarCategorias()
-  }, [])
+    buscarCategorias();
+  }, [buscarCategorias]);
 
   return (
     <div>
