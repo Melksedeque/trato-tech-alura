@@ -12,10 +12,10 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
+  busca: buscaSlice,
+  carrinho: carrinhoSlice,
   categorias: categoriasSlice,
   itens: itensSlice,
-  carrinho: carrinhoSlice,
-  busca: buscaSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
