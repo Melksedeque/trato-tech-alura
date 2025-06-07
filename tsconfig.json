@@ -19,6 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "assets/*": ["src/assets/*"],
+      "config/*": ["src/common/config/*"],
       "components/*": ["src/components/*"],
       "data/*": ["src/data/*"],
       "pages/*": ["src/pages/*"],
