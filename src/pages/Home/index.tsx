@@ -5,10 +5,23 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import Botao from 'components/Botao';
+import { useEffect } from 'react';
 
 export default function Home() {
   const navigate = useNavigate();
   const categorias = useSelector((state: RootState) => state.categorias);
+
+  function buscarCategorias() {
+    fetch('http://localhost:3333/categorias')
+      .then(response => response.json())
+      .then(json => {
+        
+      })
+  }
+
+  useEffect(() => {
+    buscarCategorias()
+  }, [])
 
   return (
     <div>
