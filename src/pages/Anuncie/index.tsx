@@ -13,8 +13,10 @@ export default function Anuncie() {
   const dispatch = useDispatch();
   const { nomeCategoria = '' } = useParams();
   const categorias = useSelector((state: RootState) =>
-    state.categorias.map(({ nome, id }) => ({ nome, id }))
+    state.categorias.items.map(({ nome, id }) => ({ nome, id }))
   );
+  const { status: statusCategorias } = useSelector((state: RootState) => state.categorias);
+  
   const { register, handleSubmit } = useForm<{
     titulo: string;
     descricao: string;
@@ -52,6 +54,9 @@ export default function Anuncie() {
         descricao="Anuncie seus produtos conosco"
       />
       <form action="" className={styles.formulario}>
+        {statusCategorias === 'loading' && <p>Carregando categorias...</p>}
+        {statusCategorias === 'failed' && <p>Erro ao carregar categorias.</p>}
+        
         <Input
           {...register('titulo', { required: true })}
           type="text"
