@@ -5,30 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import Botao from 'components/Botao';
-import { useCallback, useEffect } from 'react';
-import instance from 'config/api';
-import { adicionarCategorias } from 'store/reducers/categorias';
-import { adicionarItens } from 'store/reducers/itens';
+import { useEffect } from 'react';
+import { buscarCategorias } from 'services/categorias';
+import { buscarItens } from 'services/itens';
 
 export default function Home() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const categorias = useSelector((state: RootState) => state.categorias);
-
-  const buscarCategorias = useCallback(async () => {
-    const resposta = await instance.get('categorias');
-    dispatch(adicionarCategorias(resposta.data));
-  }, [dispatch]);
-
-  const buscarItens = useCallback(async () => {
-    const resposta = await instance.get('itens');
-    dispatch(adicionarItens(resposta.data));
-  }, [dispatch]);
+  const { items: categorias, status: statusCategorias } = useSelector((state: RootState) => state.categorias);
+  const { status: statusItens } = useSelector((state: RootState) => state.itens);
 
   useEffect(() => {
-    buscarCategorias();
-    buscarItens();
-  }, [buscarCategorias, buscarItens]);
+    dispatch(buscarCategorias());
+    dispatch(buscarItens());
+  }, [dispatch]);
 
   return (
     <div>
@@ -45,6 +35,9 @@ export default function Home() {
       <div className={styles.categorias}>
         <div className={styles.title}>
           <h2>Categorias</h2>
+          {statusCategorias === 'loading' && <p>Carregando categorias...</p>}
+          {statusCategorias === 'failed' && <p>Erro ao carregar categorias.</p>}
+          {statusItens === 'failed' && <p>Erro ao carregar itens.</p>}
         </div>
         <div className={styles.container}>
           {categorias.map((categoria, index) => (
