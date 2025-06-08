@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Item } from 'types/Item';
 import instance from 'config/api';
 
-// Thunk para buscar itens
 export const buscarItens = createAsyncThunk(
   'itens/buscar',
   async (_, { rejectWithValue }) => {
