@@ -1,13 +1,42 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Categoria } from 'types/Categoria';
+import { buscarCategorias } from 'services/categorias';
+
+interface CategoriasState {
+  items: Categoria[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+}
+
+const initialState: CategoriasState = {
+  items: [],
+  status: 'idle',
+  error: null
+};
 
 const categoriasSlice = createSlice({
   name: 'categorias',
-  initialState: [] as Categoria[],
+  initialState,
   reducers: {
-    adicionarCategorias: (_state, { payload }: PayloadAction<Categoria[]>) => {
-      return payload;
+    adicionarCategorias: (state, { payload }: PayloadAction<Categoria[]>) => {
+      state.items = payload;
+      state.status = 'succeeded';
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(buscarCategorias.pending, (state) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(buscarCategorias.fulfilled, (state, { payload }) => {
+        state.status = 'succeeded';
+        state.items = payload;
+      })
+      .addCase(buscarCategorias.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload as string || 'Ocorreu um erro desconhecido';
+      });
   },
 });
 
