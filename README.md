@@ -129,7 +129,7 @@ O projeto utiliza Redux Persist para salvar o estado da aplicação no localStor
 
 ## Projeto ao Vivo
 
-Para acessar uma versão de demonstração do projeto, visite: [Trato Tech](#)
+Para acessar uma versão de demonstração do projeto, visite: [Trato Tech](https://trato-tech-alura.vercel.app)
 
 ## Fluxo de Dados
 
