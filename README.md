@@ -117,7 +117,7 @@ O projeto utiliza Redux Persist para salvar o estado da aplicação no localStor
 3. **Favoritar Produtos**: Clique no ícone de coração para favoritar/desfavoritar um produto.
 4. **Buscar Produtos**: Use a barra de busca no topo para encontrar produtos específicos.
 5. **Gerenciar Carrinho**: Acesse a página de carrinho para ver os itens adicionados, alterar quantidades ou remover produtos.
-6. **Excluir Produtos do Carrinho**: Passe o mouse sobre um item no carrinho para ver o botão de exclusão.
+6. **Excluir Produtos**: Clique no botão vermelho no canto superior direito do item, tanto no carrinho como na categoria para removê-lo.
 7. **Inserir novos produtos**: Criar anúncios de novos produtos em /anuncie
 8. **Editar produtos**: Clique no ícone de edição para modificar o título e descrição de um produto.
 
@@ -129,7 +129,7 @@ O projeto utiliza Redux Persist para salvar o estado da aplicação no localStor
 
 ## Projeto ao Vivo
 
-Para acessar uma versão de demonstração do projeto, visite: [Trato Tech](#)
+Para acessar uma versão de demonstração do projeto, visite: [Trato Tech](https://trato-tech-alura.vercel.app)
 
 ## Fluxo de Dados
 
