@@ -15,9 +15,7 @@ export default function Carrinho() {
     const regexp = new RegExp(state.busca, 'i');
     const carrinhoReduce = state.carrinho.reduce(
       (itens: ItemCarrinho[], itemNoCarrinho: CartItem) => {
-        const item = state.itens.items.find(
-          (item) => item.id === itemNoCarrinho.id
-        );
+        const item = state.itens.find((item) => item.id === itemNoCarrinho.id);
         total += (item?.preco || 0) * itemNoCarrinho.quantidade;
         if (item?.titulo.match(regexp)) {
           itens.push({
@@ -35,10 +33,6 @@ export default function Carrinho() {
     };
   });
 
-  const { status: statusItens } = useSelector(
-    (state: RootState) => state.itens
-  );
-
   return (
     <>
       <Header
@@ -46,9 +40,6 @@ export default function Carrinho() {
         descricao="Confira os produtos que você adicionou ao carrinho"
       />
       <div className={styles.carrinho}>
-        {statusItens === 'loading' && <p>Carregando itens...</p>}
-        {statusItens === 'failed' && <p>Erro ao carregar itens.</p>}
-
         {carrinho.map((item: ItemCarrinho) => (
           <Item key={item.id} {...item} carrinho />
         ))}
