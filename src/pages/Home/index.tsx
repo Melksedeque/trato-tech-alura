@@ -2,15 +2,16 @@ import Header from 'components/Header';
 import styles from './Home.module.scss';
 import imgInicial from 'assets/images/inicial.png';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import Botao from 'components/Botao';
 import { useEffect } from 'react';
 import { buscarCategorias } from 'services/categorias';
 import { buscarItens } from 'services/itens';
+import { useAppDispatch } from 'store/hooks';
 
 export default function Home() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { items: categorias, status: statusCategorias } = useSelector((state: RootState) => state.categorias);
   const { status: statusItens } = useSelector((state: RootState) => state.itens);
@@ -40,15 +41,19 @@ export default function Home() {
           {statusItens === 'failed' && <p>Erro ao carregar itens.</p>}
         </div>
         <div className={styles.container}>
-          {categorias.map((categoria, index) => (
-            <div
-              key={index}
-              onClick={() => navigate(`/categoria/${categoria.id}`)}
-            >
-              <img src={categoria.thumbnail} alt={categoria.nome} />
-              <h3>{categoria.nome}</h3>
-            </div>
-          ))}
+          {categorias && categorias.length > 0 ? (
+            categorias.map((categoria, index) => (
+              <div
+                key={index}
+                onClick={() => navigate(`/categoria/${categoria.id}`)}
+              >
+                <img src={categoria.thumbnail} alt={categoria.nome} />
+                <h3>{categoria.nome}</h3>
+              </div>
+            ))
+          ) : statusCategorias !== 'loading' && (
+            <p>Nenhuma categoria encontrada.</p>
+          )}
         </div>
       </div>
     </div>
