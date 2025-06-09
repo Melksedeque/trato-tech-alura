@@ -5,11 +5,7 @@ import { Categoria } from 'types/Categoria';
 const categoriasSlice = createSlice({
   name: 'categorias',
   initialState: [] as Categoria[],
-  reducers: {
-    adicionarCategorias: (_state, { payload }) => {
-      return payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(buscarCategorias.fulfilled, (_state, { payload }) => {
       return payload;
@@ -17,5 +13,4 @@ const categoriasSlice = createSlice({
   },
 });
 
-export const { adicionarCategorias } = categoriasSlice.actions;
 export default categoriasSlice.reducer;
