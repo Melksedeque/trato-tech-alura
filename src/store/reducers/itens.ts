@@ -33,10 +33,10 @@ const itensSlice = createSlice({
 
 export const {
   adicionarItens,
-  mudarFavorito,
   cadastrarItem,
-  mudarItem,
   deletarItem,
+  mudarFavorito,
+  mudarItem,
 } = itensSlice.actions;
 
 export default itensSlice.reducer;
