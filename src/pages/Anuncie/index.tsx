@@ -1,16 +1,17 @@
 import Botao from 'components/Botao';
 import styles from './Anuncie.module.scss';
 import Header from 'components/Header';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import { useForm } from 'react-hook-form';
 import { cadastrarItem } from 'store/reducers/itens';
 import { useParams } from 'react-router-dom';
 import Input from 'components/Input';
 import { Item } from 'types/Item';
+import { useAppDispatch } from 'store/hooks';
 
 export default function Anuncie() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { nomeCategoria = '' } = useParams();
   const categorias = useSelector((state: RootState) =>
     state.categorias.items.map(({ nome, id }) => ({ nome, id }))
