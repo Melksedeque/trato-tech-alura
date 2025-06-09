@@ -13,3 +13,15 @@ export const buscarItens = createAsyncThunk(
     }
   }
 );
+
+export const cadastrarItem = createAsyncThunk(
+  'itens/cadastrar',
+  async (item: Omit<Item, 'id'>, { rejectWithValue }) => {
+    try {
+      const resposta = await instance.post<Item>('/itens', item);
+      return resposta.data;
+    } catch (erro) {
+      return rejectWithValue(`Erro ao cadastrar item: ${erro}`);
+    }
+  }
+);
