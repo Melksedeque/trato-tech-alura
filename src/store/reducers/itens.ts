@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuid } from 'uuid';
 import { Item } from 'types/Item';
-import { buscarItens } from 'services/itens';
+import { buscarItens, cadastrarItem } from 'services/itens';
 import { createStandaloneToast } from '@chakra-ui/toast';
 import { resetarCarrinho } from './carrinho';
 
@@ -18,9 +17,6 @@ const itensSlice = createSlice({
         }
         return item;
       });
-    },
-    cadastrarItem: (state, { payload }) => {
-      state.push({ ...payload, id: uuid() });
     },
     mudarItem: (state, { payload }) => {
       const index = state.findIndex((item) => item.id === payload.id);
@@ -61,10 +57,38 @@ const itensSlice = createSlice({
           isClosable: true,
         });
       })
-      .addCase(resetarCarrinho.type, () => {
+      .addCase(cadastrarItem.fulfilled, (state, { payload }) => {
         toast({
           title: 'Sucesso!',
-          description: 'Carrinho resetado com sucesso!',
+          description: 'Item cadastrado com sucesso!',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        });
+        state.push(payload);
+      })
+      .addCase(cadastrarItem.pending, () => {
+        toast({
+          title: 'Carregando...',
+          description: 'Cadastrando item...',
+          status: 'loading',
+          duration: 2000,
+          isClosable: true,
+        });
+      })
+      .addCase(cadastrarItem.rejected, (_state, { payload }) => {
+        toast({
+          title: 'Erro!',
+          description: payload as string,
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        });
+      })
+      .addCase(resetarCarrinho.type, () => {
+        toast({
+          title: 'Parabéns!',
+          description: 'Compra efetuada com sucesso!',
           status: 'success',
           duration: 2000,
           isClosable: true,
@@ -73,7 +97,5 @@ const itensSlice = createSlice({
   },
 });
 
-export const { cadastrarItem, deletarItem, mudarFavorito, mudarItem } =
-  itensSlice.actions;
-
+export const { deletarItem, mudarFavorito, mudarItem } = itensSlice.actions;
 export default itensSlice.reducer;
