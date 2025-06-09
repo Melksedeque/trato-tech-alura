@@ -22,7 +22,7 @@ const itensSlice = createSlice({
     mudarFavorito: (state, { payload }) => {
       state.items = state.items.map((item) => {
         if (item.id === payload) {
-          item.favorito = !item.favorito;
+          return { ...item, favorito: !item.favorito };
         }
         return item;
       });
