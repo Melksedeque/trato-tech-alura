@@ -1,6 +1,9 @@
+import { createStandaloneToast } from '@chakra-ui/toast';
 import { createSlice } from '@reduxjs/toolkit';
 import { buscarCategorias } from 'services/categorias';
 import { Categoria } from 'types/Categoria';
+
+const { toast } = createStandaloneToast();
 
 const categoriasSlice = createSlice({
   name: 'categorias',
@@ -9,14 +12,33 @@ const categoriasSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(buscarCategorias.fulfilled, (_state, { payload }) => {
-        console.log('Categorias encontradas!', payload);
+        toast({
+          title: 'Sucesso!',
+          description: 'Categorias carregadas com sucesso!',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        });
         return payload;
       })
-      .addCase(buscarCategorias.pending, (state, { payload }) => {
-        console.log('Carregando categorias...', state, payload);
+      .addCase(buscarCategorias.pending, (state) => {
+        void state;
+        toast({
+          title: 'Carregando...',
+          description: 'As categorias estão sendo carregadas',
+          status: 'loading',
+          duration: 2000,
+          isClosable: true,
+        });
       })
-      .addCase(buscarCategorias.rejected, (state, { payload }) => {
-        console.log('Erro ao carregar categorias', state, payload);
+      .addCase(buscarCategorias.rejected, (_state, { payload }) => {
+        toast({
+          title: 'Erro!',
+          description: payload as string,
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        });
       });
   },
 });
