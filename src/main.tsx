@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { createStandaloneToast } from '@chakra-ui/toast';
 
-const { ToastContainer, toast } = createStandaloneToast();
+const { ToastContainer } = createStandaloneToast();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -19,10 +19,3 @@ createRoot(document.getElementById('root')!).render(
     </Provider>
   </StrictMode>
 );
-
-toast({
-  title: 'Teste de Toast',
-  description: 'Está funcionando o Toast',
-  status: 'success',
-  duration: 3000,
-});
