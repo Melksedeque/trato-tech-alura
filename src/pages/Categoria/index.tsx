@@ -12,10 +12,10 @@ export default function Categoria() {
   const { categoria, itens } = useSelector((state: RootState) => {
     const regexp = new RegExp(state.busca, 'i');
     return {
-      categoria: state.categorias.items.find(
+      categoria: state.categorias.items && state.categorias.items.find(
         (categoria) => categoria.id === nomeCategoria
       ),
-      itens: state.itens.items.filter(
+      itens: state.itens.items && state.itens.items.filter(
         (item) => item.categoria === nomeCategoria && item.titulo.match(regexp)
       ),
     };
@@ -47,7 +47,7 @@ export default function Categoria() {
         {statusItens === 'loading' && <p>Carregando itens...</p>}
         {statusCategorias === 'failed' && <p>Erro ao carregar categorias.</p>}
         {statusItens === 'failed' && <p>Erro ao carregar itens.</p>}
-        {itens?.map((item) => <Item key={item.id} {...item} />)}
+        {itens && itens.map((item) => <Item key={item.id} {...item} />)}
       </div>
     </div>
   );
