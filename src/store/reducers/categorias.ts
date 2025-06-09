@@ -11,7 +11,7 @@ interface CategoriasState {
 const initialState: CategoriasState = {
   items: [],
   status: 'idle',
-  error: null
+  error: null,
 };
 
 const categoriasSlice = createSlice({
@@ -19,8 +19,8 @@ const categoriasSlice = createSlice({
   initialState,
   reducers: {
     adicionarCategorias: (state, { payload }: PayloadAction<Categoria[]>) => {
-      state.items = payload;
       state.status = 'succeeded';
+      state.items = payload;
     },
   },
   extraReducers: (builder) => {
@@ -35,7 +35,8 @@ const categoriasSlice = createSlice({
       })
       .addCase(buscarCategorias.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.payload as string || 'Ocorreu um erro desconhecido';
+        state.error =
+          (action.payload as string) || 'Ocorreu um erro desconhecido';
       });
   },
 });
