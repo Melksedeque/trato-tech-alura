@@ -4,12 +4,13 @@ import { ItemCarrinho } from 'types/Item';
 import { CartItem } from 'types/Carrinho';
 import styles from './Carrinho.module.scss';
 import { RootState } from 'store/index';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { resetarCarrinho } from 'store/reducers/carrinho';
 import Botao from 'components/Botao';
+import { useAppDispatch } from 'store/hooks';
 
 export default function Carrinho() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { carrinho, total } = useSelector((state: RootState) => {
     let total = 0;
     const regexp = new RegExp(state.busca, 'i');
