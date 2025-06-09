@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { Item } from 'types/Item';
 import { buscarItens } from 'services/itens';
 import { createStandaloneToast } from '@chakra-ui/toast';
+import { resetarCarrinho } from './carrinho';
 
 const { toast } = createStandaloneToast();
 
@@ -56,6 +57,15 @@ const itensSlice = createSlice({
           title: 'Erro!',
           description: payload as string,
           status: 'error',
+          duration: 2000,
+          isClosable: true,
+        });
+      })
+      .addCase(resetarCarrinho.type, () => {
+        toast({
+          title: 'Sucesso!',
+          description: 'Carrinho resetado com sucesso!',
+          status: 'success',
           duration: 2000,
           isClosable: true,
         });
