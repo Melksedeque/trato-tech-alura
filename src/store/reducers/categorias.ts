@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { buscarCategorias } from 'services/categorias';
 import { Categoria } from 'types/Categoria';
 
 const categoriasSlice = createSlice({
@@ -8,6 +9,11 @@ const categoriasSlice = createSlice({
     adicionarCategorias: (_state, { payload }) => {
       return payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(buscarCategorias.fulfilled, (_state, { payload }) => {
+      return payload;
+    });
   },
 });
 
