@@ -2,24 +2,26 @@ import Header from 'components/Header';
 import styles from './Home.module.scss';
 import imgInicial from 'assets/images/inicial.png';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from 'store/index';
+import { useDispatch, useSelector } from 'react-redux';
 import Botao from 'components/Botao';
-import { useEffect } from 'react';
-import { buscarCategorias } from 'services/categorias';
-import { buscarItens } from 'services/itens';
-import { useAppDispatch } from 'store/hooks';
+import { RootState } from 'store/index';
+import { useCallback, useEffect } from 'react';
+import instance from 'config/api';
+import { adicionarCategorias } from 'store/reducers/categorias';
 
 export default function Home() {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { items: categorias, status: statusCategorias } = useSelector((state: RootState) => state.categorias);
-  const { status: statusItens } = useSelector((state: RootState) => state.itens);
+  const categorias = useSelector((state: RootState) => state.categorias);
+
+  const buscarCategorias = useCallback(async () => {
+    const resposta = await instance.get('/categorias');
+    dispatch(adicionarCategorias(resposta.data));
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch(buscarCategorias());
-    dispatch(buscarItens());
-  }, [dispatch]);
+    buscarCategorias();
+  }, [buscarCategorias]);
 
   return (
     <div>
@@ -36,24 +38,17 @@ export default function Home() {
       <div className={styles.categorias}>
         <div className={styles.title}>
           <h2>Categorias</h2>
-          {statusCategorias === 'loading' && <p>Carregando categorias...</p>}
-          {statusCategorias === 'failed' && <p>Erro ao carregar categorias.</p>}
-          {statusItens === 'failed' && <p>Erro ao carregar itens.</p>}
         </div>
         <div className={styles.container}>
-          {categorias && categorias.length > 0 ? (
-            categorias.map((categoria, index) => (
-              <div
-                key={index}
-                onClick={() => navigate(`/categoria/${categoria.id}`)}
-              >
-                <img src={categoria.thumbnail} alt={categoria.nome} />
-                <h3>{categoria.nome}</h3>
-              </div>
-            ))
-          ) : statusCategorias !== 'loading' && (
-            <p>Nenhuma categoria encontrada.</p>
-          )}
+          {categorias.map((categoria, index) => (
+            <div
+              key={index}
+              onClick={() => navigate(`/categoria/${categoria.id}`)}
+            >
+              <img src={categoria.thumbnail} alt={categoria.nome} />
+              <h3>{categoria.nome}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </div>
