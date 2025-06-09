@@ -28,9 +28,17 @@ const itensSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(buscarItens.fulfilled, (_state, { payload }) => {
-      return payload;
-    });
+    builder
+      .addCase(buscarItens.fulfilled, (_state, { payload }) => {
+        console.log('Itens encontrados!', payload);
+        return payload;
+      })
+      .addCase(buscarItens.pending, (state, { payload }) => {
+        console.log('Carregando itens...', state, payload);
+      })
+      .addCase(buscarItens.rejected, (state, { payload }) => {
+        console.log('Erro ao carregar itens', state, payload);
+      });
   },
 });
 

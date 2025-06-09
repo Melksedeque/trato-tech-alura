@@ -7,9 +7,17 @@ const categoriasSlice = createSlice({
   initialState: [] as Categoria[],
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(buscarCategorias.fulfilled, (_state, { payload }) => {
-      return payload;
-    });
+    builder
+      .addCase(buscarCategorias.fulfilled, (_state, { payload }) => {
+        console.log('Categorias encontradas!', payload);
+        return payload;
+      })
+      .addCase(buscarCategorias.pending, (state, { payload }) => {
+        console.log('Carregando categorias...', state, payload);
+      })
+      .addCase(buscarCategorias.rejected, (state, { payload }) => {
+        console.log('Erro ao carregar categorias', state, payload);
+      });
   },
 });
 
