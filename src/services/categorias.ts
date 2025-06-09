@@ -6,7 +6,7 @@ export const buscarCategorias = createAsyncThunk(
   'categorias/buscar',
   async (_, { rejectWithValue }) => {
     try {
-      const resposta = await instance.get<Categoria[]>('categorias');
+      const resposta = await instance.get<Categoria[]>('/categorias');
       return resposta.data;
     } catch (erro) {
       return rejectWithValue(`Erro ao buscar categorias: ${erro}`);
