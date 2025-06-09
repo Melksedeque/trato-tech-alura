@@ -2,6 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
 import { Item } from 'types/Item';
 import { buscarItens } from 'services/itens';
+import { createStandaloneToast } from '@chakra-ui/toast';
+
+const { toast } = createStandaloneToast();
 
 const itensSlice = createSlice({
   name: 'itens',
@@ -30,14 +33,33 @@ const itensSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(buscarItens.fulfilled, (_state, { payload }) => {
-        console.log('Itens encontrados!', payload);
+        toast({
+          title: 'Sucesso!',
+          description: 'Itens carregados com sucesso!',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        });
         return payload;
       })
-      .addCase(buscarItens.pending, (state, { payload }) => {
-        console.log('Carregando itens...', state, payload);
+      .addCase(buscarItens.pending, (state) => {
+        void state;
+        toast({
+          title: 'Carregando...',
+          description: 'Os itens estão sendo carregados.',
+          status: 'loading',
+          duration: 2000,
+          isClosable: true,
+        });
       })
-      .addCase(buscarItens.rejected, (state, { payload }) => {
-        console.log('Erro ao carregar itens', state, payload);
+      .addCase(buscarItens.rejected, (_state, { payload }) => {
+        toast({
+          title: 'Erro!',
+          description: payload as string,
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        });
       });
   },
 });
