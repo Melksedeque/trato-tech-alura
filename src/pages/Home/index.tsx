@@ -6,25 +6,19 @@ import { useSelector } from 'react-redux';
 import Botao from 'components/Botao';
 import { RootState } from 'store/index';
 import { useAppDispatch } from 'store/hooks';
-import { useCallback, useEffect } from 'react';
-import instance from 'config/api';
-import { adicionarItens } from 'store/reducers/itens';
+import { useEffect } from 'react';
 import { buscarCategorias } from 'services/categorias';
+import { buscarItens } from 'services/itens';
 
 export default function Home() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const categorias = useSelector((state: RootState) => state.categorias);
 
-  const buscarItens = useCallback(async () => {
-    const resposta = await instance.get('/itens');
-    dispatch(adicionarItens(resposta.data));
-  }, [dispatch]);
-
   useEffect(() => {
     dispatch(buscarCategorias());
-    buscarItens();
-  }, [dispatch, buscarItens]);
+    dispatch(buscarItens());
+  }, [dispatch]);
 
   return (
     <div>
