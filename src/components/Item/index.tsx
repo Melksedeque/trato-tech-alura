@@ -12,12 +12,11 @@ import {
 import { FaCartPlus } from 'react-icons/fa';
 import { deletarItem, mudarFavorito, mudarItem } from 'store/reducers/itens';
 import { mudarCarrinho, mudarQuantidade } from 'store/reducers/carrinho';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import classNames from 'classnames';
 import { memo, useState } from 'react';
 import Input from 'components/Input';
-import { useAppDispatch } from 'store/hooks';
 
 const iconeProps = {
   size: 24,
@@ -38,7 +37,7 @@ function Item(props: Item) {
   const [modoEdicao, setModoEdicao] = useState<boolean>(false);
   const [novoTitulo, setNovoTitulo] = useState(titulo);
   const [novaDescricao, setNovaDescricao] = useState(descricao);
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const existeNoCarrinho = useSelector((state: RootState) =>
     state.carrinho.some((itemNoCarrinho) => itemNoCarrinho.id === id)
   );

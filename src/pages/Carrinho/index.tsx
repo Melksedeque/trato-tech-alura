@@ -4,19 +4,20 @@ import { ItemCarrinho } from 'types/Item';
 import { CartItem } from 'types/Carrinho';
 import styles from './Carrinho.module.scss';
 import { RootState } from 'store/index';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { resetarCarrinho } from 'store/reducers/carrinho';
 import Botao from 'components/Botao';
-import { useAppDispatch } from 'store/hooks';
 
 export default function Carrinho() {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const { carrinho, total } = useSelector((state: RootState) => {
     let total = 0;
     const regexp = new RegExp(state.busca, 'i');
     const carrinhoReduce = state.carrinho.reduce(
       (itens: ItemCarrinho[], itemNoCarrinho: CartItem) => {
-        const item = state.itens.items.find((item) => item.id === itemNoCarrinho.id);
+        const item = state.itens.items.find(
+          (item) => item.id === itemNoCarrinho.id
+        );
         total += (item?.preco || 0) * itemNoCarrinho.quantidade;
         if (item?.titulo.match(regexp)) {
           itens.push({
@@ -34,7 +35,9 @@ export default function Carrinho() {
     };
   });
 
-  const { status: statusItens } = useSelector((state: RootState) => state.itens);
+  const { status: statusItens } = useSelector(
+    (state: RootState) => state.itens
+  );
 
   return (
     <>
@@ -45,7 +48,7 @@ export default function Carrinho() {
       <div className={styles.carrinho}>
         {statusItens === 'loading' && <p>Carregando itens...</p>}
         {statusItens === 'failed' && <p>Erro ao carregar itens.</p>}
-        
+
         {carrinho.map((item: ItemCarrinho) => (
           <Item key={item.id} {...item} carrinho />
         ))}

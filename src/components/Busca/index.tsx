@@ -1,14 +1,13 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './Busca.module.scss';
 import { mudarBusca, resetarBusca } from 'store/reducers/busca';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { RootState } from 'store/index';
-import { useAppDispatch } from 'store/hooks';
 
 export default function Busca() {
   const busca = useSelector((state: RootState) => state.busca);
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const location = useLocation();
 
   useEffect(() => {
