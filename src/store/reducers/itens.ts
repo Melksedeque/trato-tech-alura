@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
 import { Item } from 'types/Item';
+import { buscarItens } from 'services/itens';
 
 const itensSlice = createSlice({
   name: 'itens',
@@ -28,6 +29,11 @@ const itensSlice = createSlice({
     adicionarItens: (_state, { payload }) => {
       return payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(buscarItens.fulfilled, (_state, { payload }) => {
+      return payload;
+    });
   },
 });
 
