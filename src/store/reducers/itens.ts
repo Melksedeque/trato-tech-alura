@@ -42,8 +42,7 @@ const itensSlice = createSlice({
         });
         return payload;
       })
-      .addCase(buscarItens.pending, (state) => {
-        void state;
+      .addCase(buscarItens.pending, () => {
         toast({
           title: 'Carregando...',
           description: 'Os itens estão sendo carregados.',

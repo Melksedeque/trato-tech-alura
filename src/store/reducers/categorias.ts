@@ -21,8 +21,7 @@ const categoriasSlice = createSlice({
         });
         return payload;
       })
-      .addCase(buscarCategorias.pending, (state) => {
-        void state;
+      .addCase(buscarCategorias.pending, () => {
         toast({
           title: 'Carregando...',
           description: 'As categorias estão sendo carregadas',
