@@ -16,18 +16,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": ".",
-    "paths": {
-      "assets/*": ["src/assets/*"],
-      "config/*": ["src/common/config/*"],
-      "components/*": ["src/components/*"],
-      "data/*": ["src/data/*"],
-      "pages/*": ["src/pages/*"],
-      "services/*": ["src/services/*"],
-      "store/*": ["src/store/*"],
-      "styles/*": ["src/styles/*"],
-      "types/*": ["src/types/*"]
-    }
   },
   "include": ["src"]
 }
